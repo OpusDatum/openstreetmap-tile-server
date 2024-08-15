@@ -23,7 +23,7 @@ Or alternativey, download an `.osm.pbf` extract from geofabrik.de for the region
 docker run \
     -v /absolute/path/to/monaco-latest.osm.pbf:/data/region.osm.pbf \
     -v osm-data:/data/database/ \
-    overv/openstreetmap-tile-server \
+    opusdatum/openstreetmap-tile-server-import \
     import
 ```
 
@@ -43,7 +43,7 @@ docker run \
     -v /absolute/path/to/luxembourg.osm.pbf:/data/region.osm.pbf \
     -v /absolute/path/to/luxembourg.poly:/data/region.poly \
     -v osm-data:/data/database/ \
-    overv/openstreetmap-tile-server \
+    opusdatum/openstreetmap-tile-server-run \
     import
 ```
 
