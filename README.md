@@ -61,7 +61,7 @@ docker run \
     -e DOWNLOAD_PBF=https://download.geofabrik.de/europe/monaco-latest.osm.pbf \
     -e DOWNLOAD_POLY=https://download.geofabrik.de/europe/monaco.poly \
     -v osm-data:/data/database/ \
-    opusdatum/openstreetmap-tile-server \
+    opusdatum/openstreetmap-tile-server-run \
     import
 ```
 
@@ -79,7 +79,7 @@ docker run \
     -e NAME_SQL=test.sql \
     -v /home/user/openstreetmap-carto-modified:/data/style/ \
     -v osm-data:/data/database/ \
-    opusdatum/openstreetmap-tile-server \
+    opusdatum/openstreetmap-tile-server-run \
     import
 ```
 
@@ -99,7 +99,7 @@ Run the server like this:
 docker run \
     -p 8080:80 \
     -v osm-data:/data/database/ \
-    -d opusdatum/openstreetmap-tile-server \
+    -d opusdatum/openstreetmap-tile-server-run \
     run
 ```
 
@@ -119,7 +119,7 @@ docker run \
     -p 8080:80 \
     -v osm-data:/data/database/ \
     -v osm-tiles:/data/tiles/ \
-    -d opusdatum/openstreetmap-tile-server \
+    -d opusdatum/openstreetmap-tile-server-run \
     run
 ```
 
@@ -137,7 +137,7 @@ docker run \
     -e UPDATES=enabled \
     -v osm-data:/data/database/ \
     -v osm-tiles:/data/tiles/ \
-    -d opusdatum/openstreetmap-tile-server \
+    -d opusdatum/openstreetmap-tile-server-run \
     run
 ```
 
@@ -162,7 +162,7 @@ docker run \
     -e EXPIRY_MAXZOOM=20 \
     -v osm-data:/data/database/ \
     -v osm-tiles:/data/tiles/ \
-    -d opusdatum/openstreetmap-tile-server \
+    -d opusdatum/openstreetmap-tile-server-run \
     run
 ```
 
@@ -175,7 +175,7 @@ docker run \
     -p 8080:80 \
     -v osm-data:/data/database/ \
     -e ALLOW_CORS=enabled \
-    -d opusdatum/openstreetmap-tile-server \
+    -d opusdatum/openstreetmap-tile-server-run \
     run
 ```
 
@@ -188,7 +188,7 @@ docker run \
     -p 8080:80 \
     -p 5432:5432 \
     -v osm-data:/data/database/ \
-    -d opusdatum/openstreetmap-tile-server \
+    -d opusdatum/openstreetmap-tile-server-run \
     run
 ```
 
@@ -206,7 +206,7 @@ docker run \
     -p 5432:5432 \
     -e PGPASSWORD=secret \
     -v osm-data:/data/database/ \
-    -d opusdatum/openstreetmap-tile-server \
+    -d opusdatum/openstreetmap-tile-server-run \
     run
 ```
 
@@ -222,7 +222,7 @@ docker run \
     -p 8080:80 \
     -e THREADS=24 \
     -v osm-data:/data/database/ \
-    -d opusdatum/openstreetmap-tile-server \
+    -d opusdatum/openstreetmap-tile-server-run \
     run
 ```
 
@@ -234,7 +234,7 @@ docker run \
     -p 8080:80 \
     -e "OSM2PGSQL_EXTRA_ARGS=-C 4096" \
     -v osm-data:/data/database/ \
-    -d opusdatum/openstreetmap-tile-server \
+    -d opusdatum/openstreetmap-tile-server-run \
     run
 ```
 
@@ -246,7 +246,7 @@ docker run \
     -p 8080:80 \
     -e AUTOVACUUM=off \
     -v osm-data:/data/database/ \
-    -d opusdatum/openstreetmap-tile-server \
+    -d opusdatum/openstreetmap-tile-server-run \
     run
 ```
 
@@ -259,7 +259,7 @@ docker run \
     -v /absolute/path/to/monaco.osm.pbf:/data/region.osm.pbf \
     -v osm-data:/data/database/ \
     -e "FLAT_NODES=enabled" \
-    opusdatum/openstreetmap-tile-server \
+    opusdatum/openstreetmap-tile-server-run \
     import
 ```
 
@@ -284,7 +284,7 @@ docker run \
     -p 8080:80 \
     -v osm-data:/data/database/ \
     --shm-size="192m" \
-    -d opusdatum/openstreetmap-tile-server \
+    -d opusdatum/openstreetmap-tile-server-run \
     run
 ```
 For too high values you may notice excessive CPU load and memory usage. It might be that you will have to experimentally find the best values for yourself.
