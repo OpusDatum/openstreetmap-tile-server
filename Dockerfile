@@ -167,6 +167,42 @@ COPY --from=compiler-helper-script /home/renderer/src/regional /home/renderer/sr
 
 COPY --from=compiler-stylesheet /root/openstreetmap-carto /home/renderer/src/openstreetmap-carto-backup
 
+# Fix vulnerabilities
+# Python
+RUN rm -r /usr/lib/python3/dist-packages/setuptools-59.6.0.egg-info
+RUN rm -r /usr/lib/python3/dist-packages/certifi-2020.6.20.egg-info 
+RUN rm -r /usr/lib/python3/dist-packages/wheel-0.37.1.egg-info
+RUN rm -r /usr/lib/python3/dist-packages/urllib3-1.26.5.egg-info
+RUN rm -r /usr/lib/python3/dist-packages/requests-2.25.1.egg-info
+RUN rm -r /usr/lib/python3/dist-packages/idna-3.3.egg-info
+RUN rm -r /usr/lib/python3/dist-packages/numpy-1.21.5.egg-info
+RUN rm -r /usr/lib/python3/dist-packages/lxml-4.8.0.egg-info
+# Java
+RUN rm -r /usr/share/java/c3p0-0.9.1.2.jar
+RUN rm -r /usr/share/java/xalan2-2.7.2.jar
+# Nodejs
+RUN rm -r /usr/share/nodejs/semver/package.json
+RUN rm -r /usr/share/nodejs/ip/package.json
+RUN rm -r /usr/share/nodejs/http-cache-semantics/package.json
+RUN rm -r /usr/share/nodejs/npm/package.json
+# Node_modules
+RUN rm -r /usr/local/lib/node_modules/carto/node_modules/execa/package.json
+RUN rm -r /usr/local/lib/node_modules/carto/node_modules/js-yaml/package.json
+RUN rm -r /usr/local/lib/node_modules/carto/node_modules/semver/package.json
+# Batik
+RUN wget https://dlcdn.apache.org/xmlgraphics/batik/binaries/batik-bin-1.17.tar.gz
+RUN tar -xf batik-bin-1.17.tar.gz
+RUN cp batik-1.17/lib/batik-svgbrowser-1.17.jar /usr/share/java/batik-svgbrowser.jar
+RUN cp batik-1.17/lib/batik-dom-1.17.jar /usr/share/java/batik-dom.jar
+RUN cp batik-1.17/lib/batik-bridge-1.17.jar /usr/share/java/batik-bridge.jar
+RUN cp batik-1.17/lib/batik-script-1.17.jar /usr/share/java/batik-script.jar
+RUN cp batik-1.17/batik-rasterizer-1.17.jar /usr/share/java/batik-rasterizer.jar
+RUN cp batik-1.17/lib/batik-transcoder-1.17.jar /usr/share/java/batik-transcoder.jar
+RUN cp batik-1.17/lib/batik-svgrasterizer-1.17.jar /usr/share/java/batik-svgrasterizer.jar
+# Commons-compres
+RUN wget https://dlcdn.apache.org//commons/compress/binaries/commons-compress-1.27.0-bin.tar.gz
+RUN tar -xf commons-compress-1.27.0-bin.tar.gz
+RUN cp commons-compress-1.27.0/commons-compress-1.27.0.jar /usr/share/java/commons-compress.jar
 # Start running
 COPY run.sh /
 ENTRYPOINT ["/run.sh"]
