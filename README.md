@@ -11,11 +11,17 @@ First create a Docker volume to hold the PostgreSQL database that will contain t
 
     docker volume create osm-data
 
-Next, download an `.osm.pbf` extract from geofabrik.de for the region that you're interested in. You can then start importing it into PostgreSQL by running a container and mounting the file as `/data/region.osm.pbf`. For example:
+To get started the monaco-latest.osm.pbf (as at 15 August 2024) has been added to the project file. 
+
+Find the pbf file's location in Linux with and substitute it in its entirety for '/absolute/path/to/monaco-latest.osm.pbf' in the docker run statement below:
+    
+    realpath pbf/monaco-latest.osm.pbf
+    
+Or alternativey, download an `.osm.pbf` extract from geofabrik.de for the region that you're interested in. You can then start importing it into PostgreSQL by running a container and mounting the file as `/data/region.osm.pbf`. For example:
 
 ```
 docker run \
-    -v /absolute/path/to/luxembourg.osm.pbf:/data/region.osm.pbf \
+    -v /absolute/path/to/monaco-latest.osm.pbf:/data/region.osm.pbf \
     -v osm-data:/data/database/ \
     overv/openstreetmap-tile-server \
     import
