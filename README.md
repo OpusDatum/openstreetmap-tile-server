@@ -40,8 +40,8 @@ If your import is an extract of the planet and has polygonal bounds associated w
 ```
 docker run \
     -e UPDATES=enabled \
-    -v /absolute/path/to/luxembourg.osm.pbf:/data/region.osm.pbf \
-    -v /absolute/path/to/luxembourg.poly:/data/region.poly \
+    -v /absolute/path/to/monaco.osm.pbf:/data/region.osm.pbf \
+    -v /absolute/path/to/monaco.poly:/data/region.poly \
     -v osm-data:/data/database/ \
     opusdatum/openstreetmap-tile-server-run \
     import
@@ -58,8 +58,8 @@ It is also possible to let the container download files for you rather than moun
 
 ```
 docker run \
-    -e DOWNLOAD_PBF=https://download.geofabrik.de/europe/luxembourg-latest.osm.pbf \
-    -e DOWNLOAD_POLY=https://download.geofabrik.de/europe/luxembourg.poly \
+    -e DOWNLOAD_PBF=https://download.geofabrik.de/europe/monaco-latest.osm.pbf \
+    -e DOWNLOAD_POLY=https://download.geofabrik.de/europe/monaco.poly \
     -v osm-data:/data/database/ \
     overv/openstreetmap-tile-server \
     import
@@ -71,8 +71,8 @@ By default the container will use openstreetmap-carto if it is not specified. Ho
 
 ```
 docker run \
-    -e DOWNLOAD_PBF=https://download.geofabrik.de/europe/luxembourg-latest.osm.pbf \
-    -e DOWNLOAD_POLY=https://download.geofabrik.de/europe/luxembourg.poly \
+    -e DOWNLOAD_PBF=https://download.geofabrik.de/europe/monaco-latest.osm.pbf \
+    -e DOWNLOAD_POLY=https://download.geofabrik.de/europe/monaco.poly \
     -e NAME_LUA=sample.lua \
     -e NAME_STYLE=test.style \
     -e NAME_MML=project.mml \
@@ -256,7 +256,7 @@ If you are planning to import the entire planet or you are running into memory e
 
 ```
 docker run \
-    -v /absolute/path/to/luxembourg.osm.pbf:/data/region.osm.pbf \
+    -v /absolute/path/to/monaco.osm.pbf:/data/region.osm.pbf \
     -v osm-data:/data/database/ \
     -e "FLAT_NODES=enabled" \
     overv/openstreetmap-tile-server \
