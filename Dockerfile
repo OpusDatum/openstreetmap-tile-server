@@ -200,9 +200,9 @@ RUN cp batik-1.17/batik-rasterizer-1.17.jar /usr/share/java/batik-rasterizer.jar
 RUN cp batik-1.17/lib/batik-transcoder-1.17.jar /usr/share/java/batik-transcoder.jar
 RUN cp batik-1.17/lib/batik-svgrasterizer-1.17.jar /usr/share/java/batik-svgrasterizer.jar
 # Commons-compres
-RUN wget https://dlcdn.apache.org//commons/compress/binaries/commons-compress-1.27.0-bin.tar.gz
-RUN tar -xf commons-compress-1.27.0-bin.tar.gz
-RUN cp commons-compress-1.27.0/commons-compress-1.27.0.jar /usr/share/java/commons-compress.jar
+RUN wget https://dlcdn.apache.org//commons/compress/binaries/commons-compress-1.27.1-bin.tar.gz
+RUN tar -xf commons-compress-1.27.1-bin.tar.gz
+RUN cp commons-compress-1.27.1/commons-compress-1.27.1.jar /usr/share/java/commons-compress.jar
 # Start running
 COPY run.sh /
 ENTRYPOINT ["/run.sh"]
